@@ -1,11 +1,6 @@
 namespace CardManagement.Api
 
 open System
-open System.Collections.Generic
-open System.IO
-open System.Linq
-open System.Threading.Tasks
-open Microsoft.AspNetCore
 open Microsoft.AspNetCore.Hosting
 open Microsoft.Extensions.Configuration
 open Microsoft.Extensions.Logging
@@ -13,16 +8,12 @@ open Microsoft.AspNetCore.Builder
 open Microsoft.Extensions.DependencyInjection
 open Giraffe
 open CardManagement.Infrastructure
-open CardManagement
-open Common
+open CardManagement.Common
 open Errors
 open ErrorMessages
 open Serilog
 
 module Program =
-    open FSharp.Control.Tasks.V2
-    open CardManagement.CardDomainCommandModels
-    open Giraffe.Serialization
     open Newtonsoft.Json
     open Newtonsoft.Json.Serialization
 
@@ -122,7 +113,7 @@ module Program =
         let contractResolver = CamelCasePropertyNamesContractResolver()
         customSettings.ContractResolver <- contractResolver
 
-        services.AddSingleton<IJsonSerializer>(NewtonsoftJsonSerializer(customSettings)) |> ignore
+        services.AddSingleton<Json.ISerializer>(NewtonsoftJson.Serializer(customSettings)) |> ignore
 
     [<EntryPoint>]
     let main args =

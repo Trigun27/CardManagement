@@ -11,8 +11,7 @@ module Common =
     let inline length (HasLength f) = f()
 
     let inline isNullOrEmpty arg =
-        if arg = null || (length arg) = 0 then true
-        else false
+        arg = null || (length arg) = 0
 
     let bindAsync f a =
         async {

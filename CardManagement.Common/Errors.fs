@@ -72,7 +72,7 @@ module Errors =
 
     (*
     Some type aliases for making code more readable and for preventing
-    typo-kind of mistakes: so you don't devlare a validation function with
+    typo-kind of mistakes: so you don't declare a validation function with
     plain `Error` type, for example.
     *)
     type AsyncResult<'a, 'error> = Async<Result<'a, 'error>>

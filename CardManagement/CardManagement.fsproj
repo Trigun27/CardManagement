@@ -1,22 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="IAppEnv.fs" />
     <Compile Include="CardDomain.fs" />
     <Compile Include="BalanceOperation.fs" />
     <Compile Include="CardActions.fs" />
     <Compile Include="CardDomainQueryModels.fs" />
     <Compile Include="CardDomainCommandModels.fs" />
-    <Compile Include="CardProgramBuilder.fs" />
     <Compile Include="CardWorkflow.fs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FsToolkit.ErrorHandling" Version="1.1.1" />
+    <PackageReference Include="FsToolkit.ErrorHandling" Version="4.9.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="FSharp.Core" Version="4.6.2" />
+    <PackageReference Update="FSharp.Core" Version="7.0.400" />
   </ItemGroup>
 
 </Project>

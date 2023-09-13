@@ -72,8 +72,9 @@ module CommandRepository =
 
     let replaceUserAsync (mongoDb: MongoDb) : ReplaceUserAsync =
         fun user ->
-            let replaceCommand (selector: Expression<_>, user, options) =
+            let replaceCommand (selector: Expression<_>, user, options: UpdateOptions) =
                 mongoDb.GetCollection(userCollection).ReplaceOneAsync(selector, user, options)
+            
             user |> executeReplaceAsync replaceCommand
 
     let replaceCardAsync (mongoDb: MongoDb) : ReplaceCardAsync =

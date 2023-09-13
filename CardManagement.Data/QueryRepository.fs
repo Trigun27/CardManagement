@@ -8,7 +8,6 @@ module QueryRepository =
     open System
 
     type IoQueryResult<'a> = Async<'a option>
-
     type GetCardAsync = MongoDb -> CardNumberString -> IoQueryResult<(CardEntity * CardAccountInfoEntity)>
     type GetUserAsync = MongoDb -> UserId -> IoQueryResult<UserEntity>
     type GetUserCardsAsync = MongoDb -> UserId -> Async<(CardEntity * CardAccountInfoEntity) list>
